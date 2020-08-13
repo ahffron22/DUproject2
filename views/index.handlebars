@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <div id="home">
+    <header id="mainHeader">
+      <h1 id="homeTitle">Dream Trip Builder</h1>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col-8 offset-2">
+          <div class="row" id="milesLeaders">
+            <div class="col-6">
+
+              <h3 style="margin-top:20px">Miles Leaders</h3>
+              <div class="row miles" style="border-bottom:solid white 2px">
+                <div class="col-6">
+                  <p style="position: relative; bottom:5px">Traveler</p>
+                </div>
+                <div class="col-6">
+                  <p style="position: relative; bottom:5px">Miles Traveled</p>
+                </div>
+              </div>
+
+              {{#each user}}
+              <div class="row miles">
+                <div class="col-6">
+                  <p>{{this.userName}}</p>
+                </div>
+                <div class="col-6">
+                  <p>{{this.milesTraveled}}</p>
+                </div>
+              </div>
+              {{/each}}
+
+            </div>
+
+
+            <div class="col-6">
+              <h3 style="margin-top:20px">Select Traveler</h3>
+              <form class="clearfix mb-4" action="POST">
+                <div class="form-group">
+                  <label for="category">Traveler:</label>
+                  <select class="selectpicker custom-select" id="traveler">
+                    <option></option>
+                    {{#each user}}
+                    <option value="{{this.id}}">{{this.userName}}</option>
+                    {{/each}}
+
+                  </select>
+
+                  <button id="submit" type="button" class="btn btn-secondary float-right">Submit</button>
+                </div>
+              </form>
+              <h3 style="margin-top:10px">Create New Traveler</h3>
+              <form class="clearfix mb-4" action="POST">
+                <div class="form-row">
+                  <div class="form-group col-6">
+                    <label for="example-text">Traveler:</label>
+                    <input type="text" id="traveler-name" class="form-control" aria-describedby="example-text"
+                      placeholder="Traveler">
+                  </div>
+                  <div class="form-group col-6">
+                    <label for="example-description">Hometown:</label>
+                    <input type="text" class="form-control" id="hometown" aria-describedby="example-description"
+                      placeholder="Hometown"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group col-6">
+                      <label>Favorite Destination:</label>
+                      <input type="text" id="fav-destination" class="form-control" aria-describedby="example-text"
+                        placeholder="Favorite Destination">
+                    </div>
+                    <div class="form-group col-6">
+                      <label>Favorite Activity:</label>
+                      <input type="text" class="form-control" id="fav-activity" aria-describedby="example-description"
+                        placeholder="Favorite Activity"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <button id="submit-user" class="btn btn-secondary float-right">Submit</button>
+              </form>
+            </div>
+          </div>
+
+
+
+          <h3 style="margin-top:20px">Recent trips taken:</h3>
+          <div id="example-list" class="container">
+            {{#each destination}}
+            {{#if savedTrip}}
+            <div data-id="{{this.id}}" class="row trip">
+              <div class="col-4">
+                <p>Departure City: {{this.departureCity}},{{this.departureState}},{{this.departureCountry}}</p>
+                <p>Arrival City: {{this.arrivalCity}},{{this.arrivalState}},{{this.arrivalCountry}}</p>
+                <p>Trip Distance: {{this.tripDistance}}</p>
+                <p>Taken by: {{this.User.userName}}</p>
+              </div>
+              <div class="col-4">
+                <p>Dates: From {{this.startDate}} to {{this.endDate}}</p>
+                <table>
+                  <tr class="row">
+                    <th>
+                      Things done:
+                    </th>
+                    <tbody>
+                      {{#each Activities}}
+                      <tr class="row">
+                        <td>{{this.activityName}}</td>
+                      </tr>
+                      {{/each}}
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-4">
+                <a href="/trip/{{this.id}}"><button type="button" class="btn btn-secondary float-right">View
+                    Trip</button></a>
+              </div>
+            </div>
+            {{/if}}
+            {{/each}}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {{!-- <script src="/../node_modules/geolib/lib/index.js" type="application/javascript"></script> --}}
+    <script src="/js/index.js"></script>
+</body>
+
+</html>

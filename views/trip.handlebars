@@ -1,0 +1,71 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <div class="card mt-4">
+          <div class="card-body">
+            <h5 class="card-title">Trip</h5>
+            <hr>
+            <p>
+              <strong>Taken By</strong>: {{destination.User.userName}}</p>
+            <p>
+              <p>
+                <strong>Departure City</strong>: {{destination.departureCity}},{{destination.departureState}},{{destination.departureCountry}}</p>
+              <p>
+                <p>
+                  <strong>Arrival City</strong>: {{destination.arrivalCity}},{{destination.arrivalState}},{{destination.arrivalCountry}}</p>
+                <p>
+                  <strong>Miles Travelled:</strong> {{destination.tripDistance}}</p>
+                <p>
+                  <strong>Dates:</strong> From {{destination.startDate}} to {{destination.endDate}}</p>
+                
+                <a href="/">← Back To Mainpage</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="card mt-4">
+          <div class="card-body">
+          
+            
+            <table>
+              <tr class ="row card-title">
+                <th class="col-6">
+                  <h5>Activities</h5>
+                </th>
+                <th class="col-6">
+                  <h5>Review</h5>
+                </th>
+              </tr>
+              
+              <tbody>
+                {{#each destination.Activities}}
+                <tr class="row">
+                  <td class="col-6">
+                    {{this.activityName}}
+                  </td>
+                  <td class="col-6">
+                    {{this.activityDescription}}
+                  </td>
+                </tr>
+                {{/each}}
+              </tbody>
+              
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="card mt-4">
+          <div class="card-body">
+          <h5 class="card-title">Trip Log</h5>
+          <hr>
+          <p>{{destination.tripBlog}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

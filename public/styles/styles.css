@@ -1,0 +1,99 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  background-image: url(https://www.publicdomainpictures.net/pictures/190000/velka/travel-background-1469438406Duy.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fdfefe;
+  text-shadow: black -1px 1px 0;
+  text-align: center;
+}
+#mainHeader {
+  margin: auto;
+  width: 75%;
+  border-bottom: 1px solid white;
+}
+#homeTitle {
+  text-shadow: 0 0 3px #000000;
+}
+#milesLeaders {
+  margin-top: 25px;
+}
+h3 {
+  color: #fdfefe;
+  text-shadow: 0 0 3px #000000;
+}
+
+.form-group,
+.custom-select,
+.form-control {
+  margin-bottom: 5px;
+}
+
+.trip {
+  border: solid 1px #fdfefe;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+
+.form-check-input {
+  margin-right: 0px;
+  position: relative;
+  left: 20px;
+}
+
+#trip-blog {
+  margin-bottom: 20px;
+}
+
+#add-activity {
+  position: relative;
+  top: 29px;
+  height: 45px;
+  background-color: slategray;
+  border: 1px solid black;
+}
+#submit-trip {
+  position: relative;
+  height: 45px;
+  background-color: slategray;
+  border: 1px solid black;
+}
+#activities {
+  margin-bottom: 20px;
+}
+
+#user,
+#start-trip-form,
+#trip-log,
+#example-list,
+.card {
+  background: rgba(255, 255, 255, 0.25) !important;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+}
+#trip-log {
+  margin-bottom: 20px;
+}
+.col-6 {
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.25) !important;
+}
+
+#example-list,
+#activities {
+  font-size: 12px;
+}
+
+.ui-datepicker {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.miles {
+  height: 40px;
+}
+#profileHeader {
+  width: 100%;
+  border-bottom: 1px solid white;
+}

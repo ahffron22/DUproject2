@@ -1,0 +1,110 @@
+<div class="container">
+    <header id="profileHeader">
+        <h1 id="profileTitle">Profile Page</h1>
+    </header>
+    <div class="row">
+        <div class="col-6">\
+            <div id="user">
+
+                <h2 id="user-name" value="{{user.id}}">{{user.userName}}</h2>
+                <h5 id="miles" value="{{user.milesTraveled}}">Miles Traveled: {{user.milesTraveled}}</h5>
+                <h5>Hometown: {{user.homeTown}}</h5>
+                <h5>Favorite Destination: {{user.favoriteDestination}}</h5>
+                <h5> Favorite Activity: {{user.favoriteActivity}}</h5>
+                <h5 id="countries-visited"></h5>
+            </div>
+            <div id="start-trip-form">
+                <form action="POST" style="margin-bottom:50px">
+                    <div class="form-row">
+                        <div class="col">
+                            <label>Departure City:</label>
+                            <input type="text" id="departure" class="form-control" placeholder="Departure City">
+                        </div>
+                        <div class="col">
+                            <label for="example-description">Arrival City</label>
+                            <input type="text" class="form-control" id="arrival" placeholder="Arrival City"></textarea>
+                        </div>
+                    </div>
+                    <div id="calendar">
+                        <label for="from">From</label>
+                        <input type="text" id="from" name="from">
+                        <label for="to">to</label>
+                        <input type="text" id="to" name="to"></div>
+                    <button id="submit" value="{{user.id}}" class="btn btn-secondary float-right">Start Trip</button>
+                </form>
+            </div>
+
+
+            <div id="trip-log">
+                <p id="depart-text"></p>
+                <p id="arrive-text"></p>
+                <p id="distance-text"></p>
+                <p id="dates-text"></p>
+                <form>
+                    <div class="form-row">
+                        <div class="col-4" id="activity-input-div"></div>
+                        <div class="col-4" id="activity-des-div"></div>
+                        <div class="col-4" id="activity-button-div"></div>
+                    </div>
+                    <table>
+                        <tr class="row">
+                            <tbody id="activities">
+                            </tbody>
+                        </tr>
+                    </table>
+                    <div id="finish-trip"></div>
+                </form>
+            </div>
+        </div>
+        <div class="col-6">
+            <h3>Trips taken:</h3>
+            <div id="example-list" class="container">
+                {{#each destination}}
+                {{#if savedTrip}}
+                <div data-id="{{this.id}}" class="row trip">
+                    <div class="col-4">
+                        <p>Departure City: {{this.departureCity}},{{this.departureState}},{{this.departureCountry}}</p>
+                        <p>Arrival City: {{this.arrivalCity}},{{this.arrivalState}},{{this.arrivalCountry}}</p>
+                        <p>Trip Distance: {{this.tripDistance}}</p>
+                    </div>
+                    <div class="col-4">
+                        <p>Dates:{{this.startDate}}-{{this.endDate}}</p>
+                        <table>
+                            <tr class="row">
+                                <th>
+                                    Things done:
+                                </th>
+                                <tbody>
+                                    {{#each activities}}
+                                    <tr class="row">
+                                        <td>{{this.activityName}}</td>
+                                    </tr>
+                                    {{/each}}
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <a href="/trip/{{this.id}}"><button type="button" class="btn btn-secondary float-right">View
+                                Trip</button></a>
+                        <button id="{{this.id}}" data-miles="{{this.tripDistance}}" data-user="{{this.UserId}}"
+                            type="button" class="btn btn-danger float-right delete"
+                            style="width:90.68px; padding: 6px 6px;">Delete Trip
+                        </button>
+                    </div>
+
+                </div>
+                {{/if}}
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/js/traveler.js"></script>
+    </body>
+
+    </html>
